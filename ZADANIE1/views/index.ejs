@@ -1,4 +1,24 @@
 
     <%- include('partials/header') %>
-    <h1>WITAJ!</h1>
+    <h1>WITAJ! o to todolist</h1>
+    <form>
+        <h2>Dodaj opcje</h2>
+        <input type="text" placeholder="Nazwa" id="Nazwa">
+        <input type="text" placeholder="Opis" id="Opis">
+        <button onclick="Tak()">Wyslij</button>
+    </form>
+    <table id="tab">
+
+    </table>
+    <button onclick="Nie()">Wyczysc</button>
+    <script>
+        function Tak(){
+        var nazwa = document.getElementById("Nazwa").Value;
+        var Opis = document.getElementById("Opis").Value;
+        document.getElementById("tab").innerHTML += "<tr><td>"+ nazwa + Opis +"</td></tr>";
+        }
+        function Nie(){
+        document.getElementById("tab").innerHTML = "";
+        }
+    </script>
     <%- include('partials/footer') %>
