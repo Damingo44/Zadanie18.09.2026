@@ -1,24 +1,36 @@
+<%- include('partials/header') %>
 
-    <%- include('partials/header') %>
-    <h1>WITAJ! o to todolist</h1>
-    <form>
-        <h2>Dodaj opcje</h2>
-        <input type="text" placeholder="Nazwa" id="Nazwa">
-        <input type="text" placeholder="Opis" id="Opis">
-        <button onclick="Tak()">Wyslij</button>
-    </form>
-    <table id="tab">
+<h1>WITAJ! o to todolist</h1>
 
-    </table>
-    <button onclick="Nie()">Wyczysc</button>
-    <script>
-        function Tak(){
-        var nazwa = document.getElementById("Nazwa").Value;
-        var Opis = document.getElementById("Opis").Value;
-        document.getElementById("tab").innerHTML += "<tr><td>"+ nazwa + Opis +"</td></tr>";
-        }
-        function Nie(){
+    <h2>Dodaj opcję</h2>
+
+    <input type="text" placeholder="Nazwa" id="Nazwa">
+    <input type="text" placeholder="Opis" id="Opis">
+
+    <button type="button" onclick="Tak()">Wyślij</button
+
+<ul id="tab">
+</ul>
+
+<button type="button" onclick="Nie()">Wyczyść</button>
+
+<script>
+    function Tak() {
+        const nazwa = document.getElementById("Nazwa").value;
+        const opis = document.getElementById("Opis").value;
+
+        const element = document.createElement("li");
+        element.textContent = nazwa + " - " + opis;
+
+        document.getElementById("tab").appendChild(element);
+
+        document.getElementById("Nazwa").value = "";
+        document.getElementById("Opis").value = "";
+    }
+
+    function Nie() {
         document.getElementById("tab").innerHTML = "";
-        }
-    </script>
-    <%- include('partials/footer') %>
+    }
+</script>
+
+<%- include('partials/footer') %>
